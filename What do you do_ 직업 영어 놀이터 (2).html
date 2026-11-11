@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What do you do? 직업 영어 놀이터</title>
+<style>
+:root{--bg:#f4faff;--cd:#fff;--tx:#222;--mu:#6a6a78;--ac:#2f7df6;--ok:#22a559;--no:#e5484d;--bd:#d6e4f5;--hl:#fff3c4;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#171b24;--cd:#222836;--tx:#f0f2f8;--mu:#a3a9ba;--bd:#38425a;--hl:#4a4320}}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:"Noto Sans KR",system-ui,-apple-system,"Malgun Gothic",sans-serif;line-height:1.5}
+h1{margin:0;padding:14px 12px 2px;text-align:center;font-size:1.35rem}
+nav{display:flex;gap:6px;overflow-x:auto;padding:8px 10px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5}
+nav button{flex:none;border:2px solid var(--bd);background:var(--cd);color:var(--tx);padding:8px 12px;border-radius:99px;font:inherit;font-size:.95rem}
+nav button.on{background:var(--ac);border-color:var(--ac);color:#fff;font-weight:700}
+main{max-width:760px;margin:0 auto;padding:6px 12px 40px}
+.cd{background:var(--cd);border:1px solid var(--bd);border-radius:16px;padding:12px;margin:8px 0}
+.b{border:0;background:var(--ac);color:#fff;padding:10px 14px;border-radius:12px;font:inherit;margin:4px 4px 0 0}.b.g{background:var(--mu)}.b.o{background:var(--ok)}
+.g4{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px}
+.t{background:var(--cd);border:2px solid var(--bd);border-radius:14px;padding:8px;text-align:center;font:inherit;color:var(--tx)}
+.e{font-size:2.4rem;line-height:1.2}.big{font-size:1.3rem;font-weight:700}.k{color:var(--ok);font-size:.9rem}
+.bub{padding:8px 10px;margin:6px 0;border-radius:14px;background:var(--cd);border:1px solid var(--bd)}
+.bub.me{background:var(--hl)}.who{font-size:.8rem;color:var(--mu)}
+.ok{background:var(--ok)!important;color:#fff!important}.no{background:var(--no)!important;color:#fff!important}.sel{border-color:var(--ac);background:var(--hl)}
+.bc{height:92px;font-size:2.2rem}.bc.m{background:var(--ok);color:#fff}
+@keyframes sk{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}.sk{animation:sk .3s}
+.row{display:flex;justify-content:space-between;gap:70px}.row>div{flex:1;display:grid;gap:8px}
+</style></head><body>
+<h1>👩‍🌾 What do you do? 직업 영어 놀이터</h1>
+<nav id="nav"></nav><main id="v"></main>
+<script>
+const J=[["farmer","파머","농부","🧑‍🌾"],["cook","쿡","요리사","🧑‍🍳"],["firefighter","파이어파이터","소방관","🧑‍🚒"],["scientist","사이언티스트","과학자","🧑‍🔬"],["pilot","파일럿","조종사","🧑‍✈️"],["doctor","닥터","의사","👨‍⚕️"],["teacher","티처","선생님","🧑‍🏫"],["nurse","널스","간호사","👩‍⚕️"],["police officer","폴리스 오피서","경찰관","👮"],["singer","싱어","가수","🧑‍🎤"],["painter","페인터","화가","🧑‍🎨"],["astronaut","애스트로넛","우주비행사","🧑‍🚀"],["dentist","덴티스트","치과의사","🦷"],["baker","베이커","제빵사","🥐"],["fisher","피셔","어부","🎣"],["mechanic","머캐닉","정비사","🧑‍🔧"],["judge","저지","판사","🧑‍⚖️"],["photographer","포토그래퍼","사진작가","📷"],["builder","빌더","건축 노동자","👷"],["dancer","댄서","무용수","💃"],["bus driver","버스 드라이버","버스 기사","🚌"],["vet","벳","수의사","🐶"],["office worker","오피스 워커","회사원","🧑‍💼"],["athlete","애슬리트","운동선수","🏃"]];
+const S=[["장면 1·2 농장에서 소방서까지",[["Minh","Oh, it’s warm.","오, 잇츠 웜.","장면 1"],["농부","Welcome.","웰컴."],["농부","Try this salad cake, please.","트라이 디스 샐러드 케익, 플리즈."],["Yeji","Thank you.","땡큐."],["Yeji","Mmm, it’s delicious.","음, 잇츠 딜리셔스."],["Minh","Are you a cook?","아 유 어 쿡?"],["농부","No, I’m not.","노, 아임 낫."],["Dito","What do you do?","왓 두 유 두?"],["농부","I’m a farmer.","아임 어 파머."],["농부","Come here, please.","컴 히어, 플리즈."],["Yeji","Okay. It’s great.","오케이. 잇츠 그레이트."],["Andy","Hello! What do you do?","헬로! 왓 두 유 두?","장면 2"],["소방관","I’m a firefighter.","아임 어 파이어파이터."],["소방관","Now, you’re a firefighter, too.","나우, 유어 어 파이어파이터, 투."],["Stella","You look great!","유 룩 그레이트!"],["소방관","Let’s go. Are you ready?","렛츠 고. 아 유 레디?"],["다같이","Three, two, one, water!","쓰리, 투, 원, 워터!"]]],
+["장면 3 과학자",[["Lucy","What do you do?","왓 두 유 두?"],["과학자","I’m a scientist.","아임 어 사이언티스트."]]],
+["장면 4 조종사",[["Jiho","What do you do?","왓 두 유 두?"],["조종사","I’m a pilot.","아임 어 파일럿."]]]];
+const $=i=>document.getElementById(i),sh=a=>[...a].sort(()=>Math.random()-.5),ar=w=>(/^[aeiou]/.test(w)?"an ":"a ")+w;
+const say=t=>{try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=.85;speechSynthesis.speak(u)}catch(e){}};
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+const T=[["d","💬 대화"],["l","📖 배우기"],["m","✏️ 선긋기"],["q","❓ 퀴즈"],["b","🎯 빙고"],["c","🃏 카드짝"],["s","🔤 철자"]];
+let cur="d";
+function nav(){$("nav").innerHTML=T.map(t=>`<button class="${t[0]==cur?"on":""}" onclick="go('${t[0]}')">${t[1]}</button>`).join("")}
+function go(t){cur=t;nav();({d:dv0,l:lv,m:mt,q:qv,b:bi,c:cm,s:sp})[t]();scrollTo(0,0)}
+/* ---- 대화 ---- */
+let sc=-1,role=null,ix=0,md="r",pl=0;
+const sayP=t=>new Promise(r=>{try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=.85;u.onend=r;u.onerror=r;speechSynthesis.speak(u);setTimeout(r,t.length*190+2500)}catch(e){setTimeout(r,t.length*120+800)}});
+const dl=ms=>new Promise(r=>setTimeout(r,ms));
+function dv0(){sc=-1;role=null;md="r";pl++;dv()}
+function dv(){const v=$("v");
+if(sc<0){v.innerHTML=`<div class="cd"><div class="big">대본을 골라요</div>${S.map((s,i)=>`<button class="b" style="display:block;width:100%;margin:6px 0" onclick="sc=${i};md='r';role=null;ix=0;dv()">${i?"✨ 짧은 대화 · ":"📚 "}${s[0]}</button>`).join("")}</div>`;return}
+const L=S[sc][1],rs=[...new Set(L.map(l=>l[0]))];window.L1=L.map(l=>l[1]);
+if(md=="r"){v.innerHTML=`<div class="cd"><b>${S[sc][0]}</b><p>① 먼저 대본을 듣고 따라 읽어요. 줄을 누르면 그 줄만 들려요.</p><button class="b" onclick="playAll()">▶ 처음부터 듣기 (색칠)</button><button class="b g" onclick="pl++;try{speechSynthesis.cancel()}catch(e){}">⏹ 멈춤</button><button class="b o" onclick="pl++;md='p';dv()">🎭 ② 역할 연습하기</button><button class="b g" onclick="pl++;sc=-1;dv()">← 목록</button></div>${L.map((l,i)=>`${l[3]?`<div style="margin-top:12px"><span style="background:var(--ac);color:#fff;border-radius:99px;padding:2px 12px;font-size:.85rem">${l[3]}</span></div>`:""}<div class="bub" id="b${i}" onclick="lp(${i})"><div class="who">${l[0]}</div><div class="big">${l[1]}</div><div class="k" id="k${i}" style="display:none">📖 ${l[2]}</div></div>`).join("")}`;return}
+if(role===null){v.innerHTML=`<div class="cd"><div class="big">② 내 역할은?</div><p>내 차례에는 내가 말해요. 다른 친구 말은 소리로 들려요.</p>${rs.map(r=>`<button class="b" onclick="role='${r}';ix=0;dv()">${r}</button>`).join("")}<button class="b g" onclick="role='';ix=0;dv()">👂 듣기만</button><br><button class="b g" onclick="md='r';dv()">← 대본 다시 보기</button></div>`;return}
+let h=`<div class="cd"><b>${S[sc][0]}</b> · 내 역할 ${role||"듣기만"} <button class="b g" onclick="role=null;dv()">역할 바꾸기</button></div>`;
+for(let i=0;i<=ix&&i<L.length;i++){const l=L[i],me=l[0]==role;
+h+=`${l[3]?`<div style="margin-top:8px"><span style="background:var(--ac);color:#fff;border-radius:99px;padding:2px 12px;font-size:.85rem">${l[3]}</span></div>`:""}<div class="bub ${me?"me":""}"><div class="who">${l[0]}${me?" (나)":""}</div><div class="big">${l[1]}</div><span class="k" id="k${i}" style="display:${i<ix?"inline":"none"}">${l[2]}</span><div><button class="b g" onclick="say(L1[${i}])">🔊</button><button class="b g" onclick="$('k${i}').style.display='inline'">📖 읽는 법</button>${me&&i==ix?`<button class="b" onclick="mic()">🎤 말하기</button>`:""}</div>${me&&i==ix?`<div id="rs" class="k"></div>`:""}</div>`}
+if(ix<L.length){const me=L[ix][0]==role;h+=`<button class="b o" onclick="ix++;dv()">${me?"✅ 말했어요":"다음 ▶"}</button>`}else h+=`<div class="cd big">🎉 대화 끝! 잘했어요!</div><button class="b" onclick="ix=0;dv()">다시</button><button class="b g" onclick="role=null;dv()">다른 역할</button><button class="b g" onclick="sc=-1;dv()">목록</button>`;
+v.innerHTML=h;
+if(ix<L.length&&L[ix][0]!=role)say(L[ix][1])}
+function cl(i,on){const b=$("b"+i);if(!b)return;b.classList.toggle("me",on);b.style.border=on?"":"2px solid var(--ok)";if(on){$("k"+i).style.display="block";b.scrollIntoView({block:"center",behavior:"smooth"})}}
+function lp(i){pl++;cl(i,true);say(L1[i])}
+async function playAll(){const t=++pl,n=L1.length;for(let i=0;i<n;i++){const b=$("b"+i);if(b){b.classList.remove("me");b.style.border="";$("k"+i).style.display="none"}}
+for(let i=0;i<n;i++){if(pl!=t)return;cl(i,true);await sayP(L1[i]);if(pl!=t)return;cl(i,false);await dl(350)}}
+function mic(){const r=$("rs"),t=window.L1[ix];if(!SR){r.textContent="이 기기는 말하기 인식이 안 돼요. 소리 내어 말하고 ✅를 눌러요!";return}
+const n=s=>s.toLowerCase().replace(/[^a-z ]/g,"").split(/\s+/).filter(Boolean);r.textContent="듣고 있어요… 🎧";
+try{const m=new SR();m.lang="en-US";m.onresult=e=>{const h=e.results[0][0].transcript,w=n(t),hh=n(h);r.textContent=(w.filter(x=>hh.includes(x)).length/w.length>=.7?"🌟 잘했어요! ":"🙂 다시 한 번! ")+"(들린 말: "+h+")"};m.onerror=()=>r.textContent="마이크를 쓸 수 없어요. 소리 내어 말하고 ✅를 눌러요!";m.start()}catch(e){r.textContent="마이크를 쓸 수 없어요."}}
+/* ---- 배우기 ---- */
+function lv(){$("v").innerHTML=`<div class="cd"><div class="big">핵심 표현 (눌러서 듣기)</div>${[["What do you do?","왓 두 유 두?","무슨 일을 하세요?"],["I’m a farmer.","아임 어 파머.","저는 농부예요."],["Are you a cook?","아 유 어 쿡?","당신은 요리사인가요?"],["No, I’m not.","노, 아임 낫.","아니요, 아니에요."]].map(x=>`<div class="bub" onclick="say('${x[0]}')"><div class="big">🔊 ${x[0]}</div><span class="k">${x[1]} · ${x[2]}</span></div>`).join("")}</div>
+<div class="cd"><div class="big">직업 카드 (누르면 소리와 읽는 법)</div><div class="g4">${J.map((j,i)=>`<button class="t" onclick="jc(${i})"><div class="e">${j[3]}</div><b>${j[0]}</b></button>`).join("")}</div><div id="jd" class="bub" style="margin-top:10px">카드를 눌러 봐요 👆</div></div>`}
+function jc(i){const j=J[i];say("I’m "+ar(j[0]));$("jd").innerHTML=`<div class="big">${j[3]} I’m ${ar(j[0])}.</div><span class="k">아임 ${/^[aeiou]/.test(j[0])?"언":"어"} ${j[1]} · 저는 ${j[2]}예요.</span>`}
+/* ---- 선긋기 ---- */
+let ML=[],MR=[],pr={},se=null,ck=null;
+function mt(){ML=sh(J).slice(0,5);MR=sh(ML);pr={};se=null;ck=null;mr()}
+function mr(){$("v").innerHTML=`<div class="cd"><div class="big">그림과 영어를 이어요</div><p>그림을 누르고, 알맞은 영어를 눌러요.</p><div id="mw" style="position:relative"><svg id="sv" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none"></svg><div class="row"><div>${ML.map((j,i)=>`<button id="l${i}" class="t bc ${se===i?"sel":""}" onclick="se=${i};mr()">${j[3]}</button>`).join("")}</div><div>${MR.map((j,i)=>`<button id="r${i}" class="t bc" style="font-size:1rem" onclick="mp(${i})">${j[0]}</button>`).join("")}</div></div></div><button class="b o" onclick="ck=1;ml()">✅ 확인</button><button class="b g" onclick="mt()">🔄 새 문제</button><div id="mres"></div></div>`;ml()}
+function mp(j){if(se===null)return;for(const k in pr)if(pr[k]==j)delete pr[k];pr[se]=j;se=null;ck=null;mr()}
+function ml(){const w=$("mw");if(!w)return;const b=w.getBoundingClientRect();let s="",n=0;for(const i in pr){const a=$("l"+i).getBoundingClientRect(),c=$("r"+pr[i]).getBoundingClientRect(),ok=ML[i][0]==MR[pr[i]][0];if(ck&&ok)n++;s+=`<line x1="${a.right-b.left}" y1="${a.top+a.height/2-b.top}" x2="${c.left-b.left}" y2="${c.top+c.height/2-b.top}" stroke="${ck?(ok?"#22a559":"#e5484d"):"#2f7df6"}" stroke-width="5" stroke-linecap="round"/>`}
+$("sv").innerHTML=s;if(ck)$("mres").innerHTML=`<div class="big">${n==5?"🎉 모두 맞았어요!":n+"개 맞았어요. 빨간 줄을 다시 이어 봐요!"}</div>`}
+addEventListener("resize",()=>{if(cur=="m")ml()});
+/* ---- 퀴즈 ---- */
+let Q=null;
+function qv(){Q=null;$("v").innerHTML=`<div class="cd"><div class="big">직업 퀴즈 24문제</div>${[["🖼️ 그림 보고 영어 고르기",0],["👂 듣고 그림 고르기",1],["💬 대화에 알맞은 대답 고르기",2],["🇰🇷 우리말 뜻 보고 영어 고르기",3]].map(x=>`<button class="b" style="display:block;width:100%;margin:6px 0" onclick="qs(${x[1]})">${x[0]}</button>`).join("")}</div>`}
+function qs(m){Q={m,q:sh(J),i:0,s:0};qq()}
+function qq(){if(Q.i>=Q.q.length){const p=Q.s/Q.q.length;$("v").innerHTML=`<div class="cd"><div class="big">${p>.85?"🏆 대단해요!":p>.6?"👍 잘했어요!":"💪 다시 도전!"}</div><p>${Q.s} / ${Q.q.length}점</p><button class="b" onclick="qs(${Q.m})">다시</button><button class="b g" onclick="qv()">다른 퀴즈</button></div>`;return}
+const j=Q.q[Q.i],o=sh([j,...sh(J.filter(x=>x!=j)).slice(0,3)]),m=Q.m;let p;
+if(m==0)p=`<div class="e" style="font-size:4rem">${j[3]}</div>`;
+if(m==1){p=`<button class="b" onclick="say('${j[0]}')">🔊 다시 듣기</button>`;say(j[0])}
+if(m==2)p=`<div class="e" style="font-size:3.4rem">${j[3]}</div><div class="big">What do you do?</div>`;
+if(m==3)p=`<div class="big" style="font-size:2rem">${j[2]}</div>`;
+$("v").innerHTML=`<div class="cd"><div>${Q.i+1} / ${Q.q.length} · ${Q.s}점</div><div style="text-align:center">${p}</div><div class="g4" style="margin-top:10px">${o.map(x=>`<button class="t big" style="${m==1?"font-size:2.6rem":"font-size:1rem"}" onclick="qa(this,${x==j})">${m==1?x[3]:m==2?"I’m "+ar(x[0])+".":x[0]}</button>`).join("")}</div></div>`}
+function qa(b,ok){if(b.parentNode.dataset.d)return;b.parentNode.dataset.d=1;b.classList.add(ok?"ok":"no");if(ok){Q.s++;say(Q.q[Q.i][0])}setTimeout(()=>{Q.i++;qq()},ok?900:1400)}
+/* ---- 빙고 ---- */
+let BG=null;
+function bi(){BG={c:sh(J).slice(0,9),m:new Set,o:[],u:null};bd()}
+function bl(){const L=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];return L.filter(l=>l.every(i=>BG.m.has(i))).length}
+function bd(){const n=bl();$("v").innerHTML=`<div class="cd"><div class="big">🎯 3×3 영어 빙고</div><p>소리를 듣고 알맞은 그림을 눌러요. 3줄이 되면 승리!</p><button class="b" onclick="bc()">🔔 단어 부르기</button><button class="b g" onclick="BG.u!==null&&say(BG.c[BG.u][0])">🔊 다시</button><button class="b g" onclick="bi()">🔄 새 판</button><div class="big" style="margin:8px 0">빙고 ${n}줄 ${n>=3?"🎉 승리!":""}</div><div class="g4" style="grid-template-columns:repeat(3,1fr)">${BG.c.map((j,i)=>`<button class="t bc ${BG.m.has(i)?"m":""}" onclick="bt(${i},this)">${j[3]}</button>`).join("")}</div></div>`}
+function bc(){const r=BG.c.map((_,i)=>i).filter(i=>!BG.m.has(i));if(!r.length)return;BG.u=r[Math.floor(Math.random()*r.length)];say(BG.c[BG.u][0])}
+function bt(i,b){if(BG.u===null)return;if(i==BG.u){BG.m.add(i);BG.u=null;bd()}else{b.classList.add("sk");setTimeout(()=>b.classList.remove("sk"),400)}}
+/* ---- 카드짝 ---- */
+let CM=null;
+function cm(){const p=sh(J).slice(0,6);CM={c:sh(p.flatMap(j=>[{k:j[0],v:j[3]},{k:j[0],v:j[0]}])),f:[],d:new Set,n:0,l:0};cd()}
+function cd(){$("v").innerHTML=`<div class="cd"><div class="big">🃏 그림과 영어 짝 맞추기</div><p>뒤집은 횟수: ${CM.n} ${CM.d.size==12?"🎉 완성!":""}</p><div class="g4" style="grid-template-columns:repeat(3,1fr)">${CM.c.map((c,i)=>{const o=CM.f.includes(i)||CM.d.has(i);return`<button class="t bc ${CM.d.has(i)?"m":""}" style="font-size:${o&&/^[a-z]/.test(c.v)?"1rem":"2.2rem"}" onclick="cf(${i})">${o?c.v:"❓"}</button>`}).join("")}</div><button class="b g" onclick="cm()">🔄 새 판</button></div>`}
+function cf(i){if(CM.l||CM.f.includes(i)||CM.d.has(i))return;CM.f.push(i);if(CM.f.length==2){CM.n++;const[a,b]=CM.f;if(CM.c[a].k==CM.c[b].k&&CM.c[a].v!=CM.c[b].v){CM.d.add(a);CM.d.add(b);say(CM.c[a].k);CM.f=[]}else{CM.l=1;cd();setTimeout(()=>{CM.f=[];CM.l=0;cd()},900);return}}cd()}
+/* ---- 철자 ---- */
+let SP=null;
+function sp(){SP={q:sh(J.filter(j=>!j[0].includes(" "))),i:0,a:"",s:0,u:[]};sq()}
+function sq(){if(SP.i>=SP.q.length){$("v").innerHTML=`<div class="cd big">🏆 ${SP.s}/${SP.q.length}점!<br><button class="b" onclick="sp()">다시</button></div>`;return}
+const j=SP.q[SP.i];if(!SP.L)SP.L=sh(j[0].split("").map((c,i)=>[c,i]));
+$("v").innerHTML=`<div class="cd"><div>${SP.i+1}/${SP.q.length} · ${SP.s}점</div><div style="text-align:center"><div class="e" style="font-size:4rem">${j[3]}</div><div class="k">${j[2]}</div><div class="big" style="letter-spacing:6px;min-height:2rem">${SP.a||"…"}</div></div><div class="g4" style="grid-template-columns:repeat(auto-fill,minmax(52px,1fr));margin-top:8px">${SP.L.map(l=>`<button class="t big" ${SP.u.includes(l[1])?"disabled":""} onclick="sl(${l[1]},'${l[0]}')">${l[0]}</button>`).join("")}</div><button class="b g" onclick="SP.a='';SP.u=[];sq()">↩ 지우기</button><button class="b g" onclick="say('${j[0]}')">🔊 힌트</button></div>`}
+function sl(i,c){SP.a+=c;SP.u.push(i);const j=SP.q[SP.i];if(SP.a.length<j[0].length){sq();return}
+const ok=SP.a==j[0];if(ok){SP.s++;say(j[0])}$("v").querySelector(".big").textContent=(ok?"✅ ":"❌ ")+j[0];setTimeout(()=>{SP.i++;SP.a="";SP.u=[];SP.L=null;sq()},1100)}
+nav();go("d");
+</script></body></html>
